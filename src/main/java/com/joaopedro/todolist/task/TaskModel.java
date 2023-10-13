@@ -24,6 +24,7 @@ public class TaskModel {
     
     @Column(length = 50)
     private String title;
+
     private LocalDateTime startAt;
     private LocalDateTime endAt;
     private String priority;
@@ -35,7 +36,12 @@ public class TaskModel {
     private LocalDateTime createdAt;
 
   
-
+public void setTitle(String title) throws Exception{
+    if(title.length()>50){
+        throw new Exception("o campo title deve conter no maximo 50 caracteres");
+    }
+    this.title = title;
+}
 
     
 }
